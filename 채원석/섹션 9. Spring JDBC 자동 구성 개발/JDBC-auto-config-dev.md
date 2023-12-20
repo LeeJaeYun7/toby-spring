@@ -26,12 +26,15 @@
 - JdbcTransactionManager() 메소드
   - 예외로는 DataAccessException을 내보낸다. 
 - TransactionManagementConfigurationSelector 클래스
+  - @transaction 3가지를 구분해서 선택하는 역할을 한다.
+  - 주로 @import({TransactionManagementException.class})과 같은 표현으로 사용된다.
 - @autoWired과 @BeforeEach
-  - @AutoWired는 스프링의 컨텍스트 빈 중에서 인스턴스 변수에 주입 가능한 타입의 빈을 찾아준다.<br>
+  - @AutoWired는 스프링의 컨텍스트 빈 중에서 인스턴스 변수에 주입 가능한 타입의 빈을 찾아준다.
   ```
   @Autowired
   SimpleDriverDataSource dataSource;
-  ``` 
+  ```
+  - @BeforeEach는 주로 테스트에서 자동으로 메소드를 실행하게 해주는 역할을 한다. 
 - @Rollback
   - 테스트 후 트랜잭션이 자동 롤백 되는 것을 방지
   - 롤백의 이유는 원자성이 보존되어야 하는 트랜잭션에서 일부만 상태가 바뀌는 것을 방지함
